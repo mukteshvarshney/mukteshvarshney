@@ -1,7 +1,7 @@
 class StoreDetailsController < ApplicationController
 	def index
     @store = StoreDetail.last(4)
-    @stores = StoreDetail.where("total_ratings > ?", 4)
+    #@stores = StoreDetail.where("total_ratings > ?", 4)
   end
 
   def show
