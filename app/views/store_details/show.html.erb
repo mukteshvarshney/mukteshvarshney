@@ -1,5 +1,5 @@
-<h1>Show Store </h1>
-<table border="1">
+<h2 class="text-center">Show Store </h2>
+<table border="1" class="table">
 	<th>
 		<td>Name</td>
 		<td>Type</td>
@@ -28,7 +28,7 @@
 <%= form_with model: @store do |form| %>
 	<div>
 	    <%= form.label :remark %><br>
-	    <%= form.text_field :remark %>
+	    <%= form.text_field :remark, class: 'form-control' %>
 	</div>
 
 	<div>
@@ -37,7 +37,7 @@
 	</div>
 
 	<div>
-		<%= form.submit "Save" %>
+		<%= form.submit "Save",class: 'btn btn-primary' %>
 	</div>
 <% end %>
 
@@ -46,15 +46,15 @@
 
 <h2>Add comment:</h2>
 <%= form_with model: [ @store, @store.store_ratings.build ] do |form| %>
-  <p>
+  <div class="">
     <%= form.label :Comments %><br>
-    <%= form.text_field :store_rating_with_comments %>
-  </p>
-  <p>
+    <%= form.text_field :store_rating_with_comments, class: 'form-control' %>
+  </div>
+  <div class="">
     <%= form.label :given_by %><br>
     <%= form.select :given_by, ['User', 'Buyer', 'Viewer', 'Review'] %>
-  </p>
-  <p>
-    <%= form.submit "Comment" %>
-  </p>
+  </div>
+  <div>
+    <%= form.submit "Comment", class: 'btn btn-primary' %>
+  </div>
 <% end %>
