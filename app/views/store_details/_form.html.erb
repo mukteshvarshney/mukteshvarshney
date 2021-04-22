@@ -1,0 +1,43 @@
+<div class="container-fliud">
+	<%= form_with model: @store do |form| %>
+	  <div>
+	    <%= form.label :name %><br>
+	    <%= form.text_field :name %>
+	  </div>
+
+	  <div>
+	    <%= form.label :type %><br>
+	    <%= form.text_field :store_type %>
+	  </div>
+
+
+	  <div>
+	    <%= form.label :address %><br>
+	    <%= form.text_field :address %>
+	  </div>
+
+	  <div>
+	    <%= form.label :owner_name %><br>
+	    <%= form.text_field :owner_name %>
+	  </div>
+
+	  <div>
+	    <%= form.label :owner_number %><br>
+	    <%= form.text_field :owner_number %>
+	  </div>
+
+	  <div>
+	    <%= form.label :timing %><br>
+	    <%= form.time_field :timing %>
+	  </div>
+
+	  <div>
+	    <%= form.label :status %><br>
+	    <%= form.select :status, ['New', 'Open', 'Brand', 'Close', 'Temporary Not Available'] %>
+	  </div>
+	 
+	  <div>
+	    <%= form.submit %>
+	  </div>
+	<% end %>
+</div>

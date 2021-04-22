@@ -1,0 +1,62 @@
+<h1> Store</h1>
+<div class="text-center">
+	<table border="1">
+		<th>
+			<td>Name</td>
+			<td>Type</td>
+			<td>Address</td>
+			<td>Owner Name</td>
+			<td>Owner Number</td>
+			<td>Timing</td>
+			<td>Status</td>
+			<td colspan="2"></td>
+		</th>
+
+		<% @store.each do |store| %>
+			<tr>
+				<td></td>
+				<td><%= store.name %></td>
+				<td><%= store.store_type %></td>
+				<td><%= store.address %></td>
+				<td><%= store.owner_name %></td>
+				<td><%= store.owner_number %></td>
+				<td><%= store.timing %></td>
+				<td><%= store.status %></td>
+				<td><%= link_to "Edit", edit_store_detail_path(store.id) , class: 'btn btn-secondary'%></td>
+				<td><%= link_to "Show", store_detail_path(store.id), class: 'btn btn-secondary' %></td>	
+			</tr>
+		<% end %>
+	</table>
+</div>
+<hr>
+<%= link_to "Add new Store", new_store_detail_path, class: 'btn btn-primary btn-lg mt-3 mb-3' %>
+<hr>
+<h1>Top Rated Store</h1>
+<div class="text-center">
+	<table border="1">
+		<th>
+			<td>Name</td>
+			<td>Type</td>
+			<td>Address</td>
+			<td>Owner Name</td>
+			<td>Owner Number</td>
+			<td>Timing</td>
+			<td>Status</td>
+			<td>Comments</td>
+		</th>
+
+		<% @stores.each do |store| %>
+			<tr>
+				<td></td>
+				<td><%= store.name %></td>
+				<td><%= store.store_type %></td>
+				<td><%= store.address %></td>
+				<td><%= store.owner_name %></td>
+				<td><%= store.owner_number %></td>
+				<td><%= store.timing %></td>
+				<td><%= store.status %></td>
+				<td><%= store.store_ratings.map{ |rating| rating.store_rating_with_comments.to_s} %></td>	
+			</tr>
+		<% end %>
+	</table>
+</div>

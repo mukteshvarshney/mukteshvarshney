@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  store_rating_with_comments: MyText
+  given_by: MyString
+  store_detail: one
+
+two:
+  store_rating_with_comments: MyText
+  given_by: MyString
+  store_detail: two

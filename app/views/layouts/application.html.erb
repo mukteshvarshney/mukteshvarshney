@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Store</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<nav class="navbar navbar-light bg-dark">
+      <a class="navbar-brand" href="#">
+        <center>
+        <%= image_tag("techment.png", height: 50, width: 50) %>
+        </center>
+      </a>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
