@@ -43,11 +43,11 @@
 			  	<% if @store.present? %>
 				  	<% @store.image.each do |image| %>
 				  		<span>
-		    				<%= image_tag url_for(image),:size => "125x125"%>
+		    				<%= image_tag url_for(image),:size => "125x125", class: 'rounded-circle'%>
 		    			</span>
 
 		    			<span style="margin-left: 100px;">
-		    				<%= link_to image_tag("delete.png",:size => "35x30"), delete_image_attachment_store_detail_path(image.id),method: :delete, remote: true, data: { confirm: 'Do You Want To Delete ?' } %>
+		    				<%= link_to "Delete", delete_image_attachment_store_detail_path(image.id),method: :delete, remote: true, :class => "btn btn-danger" , data: { confirm: 'Do You Want To Delete ?' } %>
 		    			</span>
 		    			<br>
 					<% end %>

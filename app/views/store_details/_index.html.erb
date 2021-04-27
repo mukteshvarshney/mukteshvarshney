@@ -33,7 +33,7 @@
 						<td><%= store.status %></td>
 						<td>
 							<% store.image.each do |image| %>
-		    					<%= image_tag url_for(image),:size => "125x125"%><br>
+		    					<%= image_tag url_for(image),:size => "125x125", class: 'rounded-circle' %><br>
 		    					<hr>
 							<% end %>
 						</td>
