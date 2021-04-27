@@ -44,6 +44,15 @@ class StoreDetailsController < ApplicationController
     end
   end
 
+
+  def delete_image_attachment
+    @image = ActiveStorage::Blob.find(params[:id])
+    @image.attachments.first.purge
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
+  end
+
   private
 
   def store_detail_params

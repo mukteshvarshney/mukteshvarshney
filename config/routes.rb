@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root "store_details#index"
 
   resources :store_details do
+  	member do
+    	delete :delete_image_attachment
+  	end
   	resources :store_ratings
   end
 end
