@@ -1,2 +1,5 @@
-<h1>Edit Store Details</h1>
-<%= render "form", article: @article %>
+<h3 class="text-center mt-3 mb-3" style="color: orange; font-style: italic;">Edit Store Details </h3>
+<hr>
+<%= render "form", store: @store %>
+<div class="text-center"> <%= link_to "Back to Home", store_details_path, class: 'btn btn-link tex' %>
+</div>

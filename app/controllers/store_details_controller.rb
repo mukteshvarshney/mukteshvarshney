@@ -1,7 +1,7 @@
 class StoreDetailsController < ApplicationController
 	def index
-    @store = StoreDetail.last(4)
-    @stores = StoreDetail.where(total_ratings: ["4","5"])
+    @stores = StoreDetail.last(4)
+    @stores_top = StoreDetail.where(total_ratings: ["4","5"])
   end
 
   def show
@@ -19,7 +19,6 @@ class StoreDetailsController < ApplicationController
 
   def create
     @store = StoreDetail.new(store_detail_params)
-
     if @store.save
       flash.alert = "Store Create Sucessfully"
       redirect_to store_details_path
@@ -36,7 +35,10 @@ class StoreDetailsController < ApplicationController
     @store = StoreDetail.find(params[:id])
 
     if @store.update(store_detail_params)
-      redirect_to store_details_path
+      respond_to do |format|
+        format.html { redirect_to store_details_path }
+        format.js { redirect_to store_details_path }
+      end
     else
       render :edit
     end
@@ -45,6 +47,6 @@ class StoreDetailsController < ApplicationController
   private
 
   def store_detail_params
-  	params.require(:store_detail).permit(:name, :store_type, :address, :owner_name, :owner_number, :timing, :remark, :status, :total_ratings)
+  	params.require(:store_detail).permit(:name, :store_type, :address, :owner_name, :owner_number, :timing, :remark, :status, :total_ratings, image: [])
   end
 end

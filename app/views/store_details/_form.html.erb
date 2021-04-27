@@ -1,43 +1,61 @@
-<div class="container-fliud">
-	<%= form_with model: @store do |form| %>
-	  <div>
-	    <%= form.label :name %><br>
-	    <%= form.text_field :name %>
-	  </div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<%= form_with model: @store,local: true do |form| %>
+			  <div>
+			    <%= form.label :name , class: 'label' %>
+			    <%= form.text_field :name, class: 'form-control' %>
+			  </div>
 
-	  <div>
-	    <%= form.label :type %><br>
-	    <%= form.text_field :store_type %>
-	  </div>
+			  <div>
+			    <%= form.label :type %>
+			    <%= form.text_field :store_type,  class: 'form-control' %>
+			  </div>
 
 
-	  <div>
-	    <%= form.label :address %><br>
-	    <%= form.text_field :address %>
-	  </div>
+			  <div>
+			    <%= form.label :address %>
+			    <%= form.text_field :address,  class: 'form-control' %>
+			  </div>
 
-	  <div>
-	    <%= form.label :owner_name %><br>
-	    <%= form.text_field :owner_name %>
-	  </div>
+			  <div>
+			    <%= form.label :owner_name %>
+			    <%= form.text_field :owner_name,  class: 'form-control' %>
+			  </div>
 
-	  <div>
-	    <%= form.label :owner_number %><br>
-	    <%= form.text_field :owner_number %>
-	  </div>
+			  <div>
+			    <%= form.label :owner_number %>
+			    <%= form.text_field :owner_number,  class: 'form-control' %>
+			  </div>
 
-	  <div>
-	    <%= form.label :timing %><br>
-	    <%= form.time_field :timing %>
-	  </div>
+			  <div>
+			    <%= form.label :timing %>
+			    <%= form.time_field :timing,  class: 'form-control' %>
+			  </div>
 
-	  <div>
-	    <%= form.label :status %><br>
-	    <%= form.select :status, ['New', 'Open', 'Brand', 'Close', 'Temporary Not Available'] %>
-	  </div>
-	 
-	  <div>
-	    <%= form.submit %>
-	  </div>
-	<% end %>
+			  <div>
+			    <%= form.label :status %>
+			    <%= form.select :status, ['New', 'Open', 'Brand', 'Close', 'Temporary Not Available'], {}, {class: 'form-control'} %>
+			  </div>
+
+			  <div>
+			  	<% if @store.present? %>
+				  	<% @store.image.each do |image| %>
+		    			<%= image_tag url_for(image),:size => "125x125"%><br>
+		    			<hr>
+					<% end %>
+				<% end %>	
+			  	<%= form.label :Images %>
+			    <%= form.file_field :image, multiple: true %>
+			  	
+			  </div>
+			 
+			  <div>
+			    <%= form.submit "Submit", class: 'btn btn-primary mt-3 mb-3' %>
+			  </div>
+			<% end %>
+		</div>
+		<div class="col-md-4"></div>	
+	</div>
 </div>

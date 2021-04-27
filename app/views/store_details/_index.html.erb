@@ -1,0 +1,79 @@
+<div class="container-fluid">
+	<div class="row">
+			<div class="col-md-5">
+				<%= link_to "Add new Store", new_store_detail_path, class: 'btn btn-info mt-3 mb-3' %>
+			</div>
+			<div class="col-md-7">
+				<h3 class="mt-3 mb-3" style="color: orange; font-style: italic; text-decoration: underline;">Store Details </h3>
+			</div>
+	</div>	
+	<div class="row text-center">
+		<table border="1" class="table">
+			<thead class="table-primary">
+				<th>Name</th>
+				<th>Type</th>
+				<th>Address</th>
+				<th>Owner Name</th>
+				<th>Owner Number</th>
+				<th>Timing</th>
+				<th>Status</th>
+				<th>Images</th>
+				<th colspan="2">Action</th>
+			</thead>
+
+			<tbody>
+				<% @stores.each do |store| %>
+					<tr>
+						<td><%= store.name %></td>
+						<td><%= store.store_type %></td>
+						<td><%= store.address %></td>
+						<td><%= store.owner_name %></td>
+						<td><%= store.owner_number %></td>
+						<td><%= store.timing %></td>
+						<td><%= store.status %></td>
+						<td>
+							<% store.image.each do |image| %>
+		    					<%= image_tag url_for(image),:size => "125x125"%><br>
+		    					<hr>
+							<% end %>
+						</td>
+						<td><%= link_to "Edit", edit_store_detail_path(store.id) , class: 'btn btn-secondary'%></td>
+						<td><%= link_to "Show", store_detail_path(store.id), class: 'btn btn-secondary' %></td>	
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="text-center mt-3 mb-3" style="color: orange; font-style: italic; text-decoration: underline;">Top Rated Store</h3>
+		</div>
+	</div>
+	<div class="row text-center">
+		<table border="1" class="table">
+			<thead class="table-primary">
+				<th>Name</th>
+				<th>Type</th>
+				<th>Address</th>
+				<th>Owner Name</th>
+				<th>Owner Number</th>
+				<th>Timing</th>
+				<th>Status</th>
+				<th>Comments</th>
+			</thead>
+
+			<% @stores_top.each do |store| %>
+				<tr>
+					<td><%= store.name %></td>
+					<td><%= store.store_type %></td>
+					<td><%= store.address %></td>
+					<td><%= store.owner_name %></td>
+					<td><%= store.owner_number %></td>
+					<td><%= store.timing %></td>
+					<td><%= store.status %></td>
+					<td><%= store.store_ratings.map{ |rating| rating.store_rating_with_comments.to_s} %></td>	
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
